@@ -1,0 +1,705 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tahamid Alif | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --teal:#008080;
+  --cyan:#00ffff;
+  --dark:#0b1416;
+  --light:#f4f4f9;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Open Sans',sans-serif;
+  background:var(--dark);
+  color:var(--light);
+}
+
+/* HEADER */
+header{
+  background:rgba(8, 15, 17, 0.9);
+  padding:0.8rem 4%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid rgba(0,255,255,.2);
+  flex-wrap:wrap;
+  gap:8px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease; /* Added for smooth scroll animation */
+}
+
+header.scrolled {
+  background: rgba(8, 15, 17, 0.98);
+  box-shadow: 0 5px 20px rgba(0, 255, 255, 0.15);
+  padding: 0.5rem 4%;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.logo{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:2px solid var(--cyan);
+  box-shadow:0 0 10px var(--cyan);
+}
+
+.brand h2{
+  color:var(--cyan);
+  text-shadow:0 0 10px var(--cyan);
+  font-family:Montserrat;
+  font-size:1.1rem;
+}
+
+/* NAVIGATION */
+.nav-container{
+  display:flex;
+  padding:5px;
+  border-radius:30px;
+  background:rgba(0,60,65,.25);
+  backdrop-filter:blur(12px);
+  box-shadow:
+  inset 0 0 10px rgba(0,255,255,.1),
+  0 0 25px rgba(0,255,255,.05);
+  overflow-x:auto;
+}
+
+.nav-container::-webkit-scrollbar{
+  display:none;
+}
+
+.nav-btn{
+  border:none;
+  padding:8px 16px;
+  border-radius:25px;
+  background:transparent;
+  color:#7dd3d6;
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.35s;
+  text-decoration:none;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.nav-btn:hover{
+  color:white;
+}
+
+.nav-btn.active{
+  color:white;
+  background:linear-gradient(
+  180deg,
+  rgba(0,255,255,.45),
+  rgba(0,120,120,.35)
+  );
+  box-shadow:
+  inset 0 2px 6px rgba(0,255,255,.6),
+  0 0 18px rgba(0,255,255,.7),
+  0 0 35px rgba(0,255,255,.35);
+}
+
+/* SECTIONS */
+section{
+  padding:4rem 5%;
+  min-height:80vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  scroll-margin-top: 80px; /* Ensures header doesn't cover section titles */
+}
+
+.section-title{
+  color:var(--cyan);
+  text-align:center;
+  font-size:2.2rem;
+  margin-bottom:2rem;
+  text-shadow:0 0 12px rgba(0,255,255,.4);
+  font-family:Montserrat;
+}
+
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1.5fr;
+  gap:2rem;
+  align-items:center;
+}
+
+.hero img{
+  width:100%;
+  max-width:280px;
+  border-radius:20px;
+  border:2px solid var(--cyan);
+  box-shadow:0 0 20px rgba(0,255,255,.5);
+}
+
+.hero-text h1{
+  font-size:2.8rem;
+  margin-bottom:1rem;
+  text-shadow:0 0 15px var(--cyan);
+  font-family:Montserrat;
+}
+
+.hero-text p{
+  color:#b0d4d4;
+  margin-bottom:1rem;
+  font-size:1rem;
+}
+
+/* GLOW TEXT ANIMATION */
+.glow-text{
+  color:var(--cyan);
+  animation:glowPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse{
+  from{
+  text-shadow:
+  0 0 5px var(--cyan),
+  0 0 10px var(--cyan),
+  0 0 20px var(--cyan);
+  }
+  to{
+  text-shadow:
+  0 0 10px var(--cyan),
+  0 0 25px var(--cyan),
+  0 0 45px var(--cyan);
+  }
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.8rem;
+}
+
+.card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(0,255,255,.3);
+  border-radius:15px;
+  padding:1.8rem;
+  transition:.3s;
+  backdrop-filter:blur(5px);
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 8px 20px rgba(0,255,255,.2);
+}
+
+.card h3{
+  color:var(--cyan);
+  margin-bottom:8px;
+}
+
+.card p{
+  color:#b0d4d4;
+}
+
+/* PROJECT GALLERY */
+.project-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.project-gallery img {
+  width: 100%;
+  max-width: 350px;
+  border: 2px solid var(--cyan);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,255,255,.3);
+  object-fit: cover;
+  transition: .3s;
+}
+
+.project-gallery img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,255,255,.5);
+}
+
+/* IMPACT */
+.impact{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:20px;
+  text-align:center;
+}
+
+.impact div{
+  padding:18px;
+  border:1px solid rgba(0,255,255,.3);
+  border-radius:12px;
+  background:rgba(255,255,255,.05);
+}
+
+.impact h2{
+  color:var(--cyan);
+  font-size:1.8rem;
+}
+
+/* VIDEO */
+.video{
+  max-width:900px;
+  margin:auto;
+}
+
+.video iframe{
+  width:100%;
+  height:460px;
+  border-radius:15px;
+  border:2px solid var(--cyan);
+  box-shadow:0 0 20px rgba(0,255,255,.5);
+}
+
+/* FOOTER */
+footer{
+  background:#050a0b;
+  text-align:center;
+  padding:2rem;
+  border-top:1px solid rgba(0,255,255,.2);
+}
+
+footer a{
+  color:var(--cyan);
+  text-decoration:none;
+}
+
+/* Interview Button */
+.interview-btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:8px 20px;
+  background:linear-gradient(180deg, rgba(0,255,255,.45), rgba(0,120,120,.35));
+  color:white;
+  font-weight:700;
+  border-radius:25px;
+  text-decoration:none;
+  box-shadow:
+  inset 0 2px 5px rgba(0,255,255,.6),
+  0 0 18px rgba(0,255,255,.7),
+  0 0 35px rgba(0,255,255,.35);
+  transition:.3s;
+}
+
+.interview-btn:hover{
+  box-shadow:
+  inset 0 3px 8px rgba(0,255,255,.7),
+  0 0 25px rgba(0,255,255,.8),
+  0 0 50px rgba(0,255,255,.45);
+}
+
+.interview-img{
+  margin-top:20px;
+  border:3px solid var(--cyan);
+  border-radius:12px;
+  box-shadow:0 0 20px rgba(0,255,255,.4);
+  max-width:700px;
+  width:100%;
+}
+
+/* Certificate Cards */
+.certificate-grid{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  max-width:900px;
+  margin:auto;
+}
+
+.certificate-card{
+  display:flex;
+  gap:20px;
+  align-items:center;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(0,255,255,.3);
+  border-radius:15px;
+  padding:18px;
+  transition:.3s;
+  backdrop-filter:blur(5px);
+  text-decoration:none;
+  color:inherit;
+}
+
+.certificate-card img{
+  width:150px;
+  height:auto;
+  border-radius:10px;
+  object-fit:cover;
+  border:2px solid var(--cyan);
+  box-shadow:0 0 18px rgba(0,255,255,.4);
+  flex-shrink:0;
+}
+
+.certificate-card .card-content{
+  flex:1;
+  text-align:left;
+}
+
+.certificate-card h3{
+  color:var(--cyan);
+  margin-bottom:6px;
+  font-size:1rem;
+}
+
+.certificate-card p{
+  color:#b0d4d4;
+  margin:3px 0;
+  font-size:0.9rem;
+}
+
+.certificate-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 8px 20px rgba(0,255,255,.2);
+  text-decoration:none;
+  color:inherit;
+}
+
+/* DESKTOP/PC NAVIGATION ENHANCEMENTS */
+@media (min-width: 769px) {
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+  .brand {
+    justify-self: start;
+  }
+  .nav-container {
+    justify-self: center;
+    padding: 10px 15px;
+    border-radius: 40px;
+  }
+  .nav-btn {
+    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 30px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .brand{
+    justify-content:center;
+    width:100%;
+  }
+  .logo{
+    width:30px;
+    height:30px;
+  }
+  .brand h2{
+    font-size:0.9rem;
+  }
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+  .hero-text h1{
+    font-size:2rem;
+  }
+  .video iframe{
+    height:260px;
+  }
+  header{
+    flex-direction:column;
+    align-items:flex-start;
+    padding:0.5rem 3%;
+  }
+  .nav-btn{
+    padding:6px 12px;
+    font-size:11px;
+  }
+  .certificate-card{
+    flex-direction:column;
+    align-items:center;
+    text-align:left;
+    gap:12px;
+    padding:12px;
+  }
+  .certificate-card img{
+    width:150px;
+    margin-bottom:10px;
+  }
+  .certificate-card .card-content h3{
+    font-size:0.95rem;
+  }
+  .certificate-card .card-content p{
+    font-size:0.8rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header id="main-header">
+  <div class="brand">
+    <img class="logo" src="https://mbstucc.com/mbstucc-asset-library/_assets/media/e03aa951a79c6544f95f8eafe0c88533.jpg">
+    <h2>Tahamid Alif</h2>
+  </div>
+
+  <div class="nav-container">
+    <a href="#home" class="nav-btn active">Home</a>
+    <a href="#impact" class="nav-btn">Impact</a>
+    <a href="#projects" class="nav-btn">Projects</a>
+    <a href="#skills" class="nav-btn">Skills</a>
+    <a href="#certificates" class="nav-btn">Certificates</a>
+    <a href="#video" class="nav-btn">Video Resume</a>
+  </div>
+</header>
+
+<section id="home">
+  <div class="hero">
+    <div>
+      <img src="https://mbstucc.com/mbstucc-asset-library/_assets/media/e03aa951a79c6544f95f8eafe0c88533.jpg">
+    </div>
+    <div class="hero-text">
+      <h1>Shaping People and Performance </h1>
+      <p><strong class="glow-text">BBA Student | Sustainability Activist | Youth Leader</strong></p>
+      <p>Hi, I’m Tahamid Alif, an ambitious BBA (Management) student with a strong interest in Human Resources and organizational development.</p>
+      <p>I have experience in organizational coordination, communication, and digital content creation using Canva and Google Workspace. I enjoy working in collaborative environments where I can contribute to effective team coordination and structured workflows.</p>
+      <p style="color:#7dd3d6">
+        ✔ 40+ Events Organized  <br>
+        ✔ 7+ Strategic Partnerships  <br>
+        ✔ 1000+ Students Impacted
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="impact">
+  <h2 class="section-title">Impact</h2>
+  <div class="impact">
+    <div>
+      <h2 class="count" data-target="40">0</h2>
+      <p>Events</p>
+    </div>
+    <div>
+      <h2 class="count" data-target="7">0</h2>
+      <p>Partnerships</p>
+    </div>
+    <div>
+      <h2 class="count" data-target="1000">0</h2>
+      <p>Students</p>
+    </div>
+    <div>
+      <h2 class="count" data-target="90">0</h2>
+      <p>Videos</p>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:60px;">
+    <h2 class="section-title">My Interview with Lead Academy</h2>
+    <div class="video">
+      <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=2745903938948631&show_text=false" allowfullscreen></iframe>
+    </div>
+    <br>
+    <a class="interview-btn" href="https://www.facebook.com/watch/?v=2745903938948631" target="_blank">Watch My Interview</a>
+    <br>
+    <img class="interview-img" src="https://res.cloudinary.com/drkgvct2w/image/upload/v1773970415/500245779_1119686520174180_8459352114944038153_n_yl14we.jpg" alt="Interview on Newspaper">
+    <p style="color:#b0d4d4; margin-top:10px; font-weight:600; margin-bottom: 60px;">My interview published on National Daily Newspaper</p>
+
+    <h2 class="section-title">My collaboration and partnerships</h2>
+    <img class="interview-img" src="https://res.cloudinary.com/drkgvct2w/image/upload/v1773970415/589196442_1889220825311215_99127945377649201_n_ejfu0w.jpg" alt="MoU signing with HR Perception">
+    <p style="color:#b0d4d4; margin-top:10px; font-weight:600; margin-bottom: 40px;">(MoU signing with HR Perception)</p>
+    <img class="interview-img" src="https://res.cloudinary.com/drkgvct2w/image/upload/v1773970423/496490048_1105991124877053_8989835391336068194_n_a8yux3.jpg" alt="MoU signing with Netcom Learning Bangladesh">
+    <p style="color:#b0d4d4; margin-top:10px; font-weight:600;">(MoU signing with Netcom Learning Bangladesh)</p>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Digital Awareness Bootcamp</h3>
+      <p>Empowered female students with digital productivity skills.</p>
+    </div>
+    <div class="card">
+      <h3>Career Development Workshops</h3>
+      <p>Organized seminars and bootcamps for career awareness.</p>
+    </div>
+    <div class="card">
+      <h3>Strategic Partnerships</h3>
+      <p>Collaborated with national and international organizations.</p>
+    </div>
+  </div>
+
+  <div class="project-gallery">
+    <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1773970414/490405401_1088444499965049_317091304181031626_n_f5g262.jpg" alt="Project Image 1">
+    <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1773972985/484536169_1064277105715122_2872901531320010393_n_x88lfm.jpg" alt="Project Image 2">
+    <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1773970421/484536452_1063396515803181_4857376605982063125_n_miebo2.jpg" alt="Project Image 3">
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="section-title">Skills</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Leadership</h3>
+      <p>Team management and event coordination.</p>
+    </div>
+    <div class="card">
+      <h3>Digital Marketing</h3>
+      <p>Meta Ads campaigns and social media strategy.</p>
+    </div>
+    <div class="card">
+      <h3>Creative Design</h3>
+      <p>80+ Canva graphics for campaigns and events.</p>
+    </div>
+    <div class="card">
+      <h3>Video Editing</h3>
+      <p>Edited 90+ promotional videos.</p>
+    </div>
+  </div>
+</section>
+
+<section id="certificates">
+  <h2 class="section-title">Certificates</h2>
+  <div class="certificate-grid">
+    <a href="https://coursera.org/account/accomplishments/verify/XACM2A63RLAR" target="_blank" class="certificate-card">
+      <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~XACM2A63RLAR/CERTIFICATE_LANDING_PAGE~XACM2A63RLAR.jpeg" alt="Introduction to Google SEO">
+      <div class="card-content">
+        <h3>Introduction to Google SEO</h3>
+        <p>Issued by University of California, Davis</p>
+        <p>Credential ID: XACM2A63RLAR</p>
+      </div>
+    </a>
+    <a href="https://www.udemy.com/certificate/UC-df882676-d94c-4590-9107-1ee70bff8a0a/" target="_blank" class="certificate-card">
+      <img src="https://udemy-certificate.s3.amazonaws.com/image/UC-df882676-d94c-4590-9107-1ee70bff8a0a.jpg?v=1625147678000" alt="Certified Instagram Marketing Professional (CPD Accredited)">
+      <div class="card-content">
+        <h3>Certified Instagram Marketing Professional (CPD Accredited)</h3>
+        <p>Issued by Udemy</p>
+        <p>Credential ID: UC-df882676-d94c</p>
+      </div>
+    </a>
+    <a href="https://alison.com/certification/check/db1cb7fb6e" target="_blank" class="certificate-card">
+      <img src="https://cdn01.alison-static.net/parchment-previews/6feb52ec1c64360b28dd51e1112bcb27.jpg" alt="Social Media Marketing">
+      <div class="card-content">
+        <h3>Social Media Marketing</h3>
+        <p>Issued by Alison</p>
+        <p>Credential ID: CANVA-DESIGN-2024</p>
+      </div>
+    </a>
+    <a href="https://drive.google.com/file/d/1eTIhbwE6s5WBbBVUcwUEt4FJNN2nZxZ7/view?usp=sharing" target="_blank" class="certificate-card">
+      <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1773554190/1749916822219_kiqz0g.jpg" alt="Lean Six Sigma White Belt Certification">
+      <div class="card-content">
+        <h3>Lean Six Sigma White Belt Certification</h3>
+        <p>Issued by The Council for Six Sigma Certification (CSSC)</p>
+        <p>Credential ID:GG18XmDIX7</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section id="video">
+  <h2 class="section-title">Video Resume</h2>
+  <div class="video">
+    <iframe src="https://www.youtube.com/embed/YidbGRoppfE" allowfullscreen></iframe>
+  </div>
+</section>
+
+<footer>
+  <h2>Tahamid Alif</h2>
+  <p>Dhaka, Bangladesh</p>
+  <p>Email: <a href="mailto:htahamidalif@gmail.com">htahamidalif@gmail.com</a></p>
+  <p>LinkedIn: <a href="https://linkedin.com/in/tahamid-alif-1743591b3">linkedin.com/in/tahamid-alif</a></p>
+  <p>© 2026 Tahamid Alif</p>
+</footer>
+
+<script>
+  // Setup elements
+  const navBtns = document.querySelectorAll(".nav-btn");
+  const sections = document.querySelectorAll("section");
+  const header = document.getElementById("main-header");
+
+  // Optional: manual click handler to update immediately before scroll catches up
+  navBtns.forEach(btn => {
+    btn.addEventListener("click", function() {
+      navBtns.forEach(b => b.classList.remove("active"));
+      this.classList.add("active");
+    });
+  });
+
+  // ScrollSpy: Update active nav link based on scroll position
+  window.addEventListener("scroll", () => {
+    let current = "";
+    
+    // Add nice glass effect to header when scrolling down
+    if (window.scrollY > 50) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      // Subtract an offset so it highlights a bit before the section reaches the very top
+      if (window.pageYOffset >= (sectionTop - 150)) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    // Apply active class to the correct nav button
+    navBtns.forEach(btn => {
+      btn.classList.remove("active");
+      if (btn.getAttribute("href") === `#${current}`) {
+        btn.classList.add("active");
+      }
+    });
+  });
+
+  /* Impact Count Animation */
+  const counters = document.querySelectorAll(".count");
+  counters.forEach(counter => {
+    counter.innerText = '0';
+    const updateCounter = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const increment = target / 100;
+      if (count < target) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCounter, 20);
+      } else {
+        counter.innerText = target + "+";
+      }
+    };
+    // Trigger animation when elements become visible using Intersection Observer
+    const observer = new IntersectionObserver(entries => {
+      if(entries[0].isIntersecting) {
+        updateCounter();
+        observer.disconnect(); // Run only once
+      }
+    });
+    observer.observe(counter);
+  });
+</script>
+
+</body>
+</html>
