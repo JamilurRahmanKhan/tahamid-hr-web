@@ -1,457 +1,665 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tahamid Alif | Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<title>Tahamid Alif | Tech HR Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --teal:#008080;
-  --cyan:#00ffff;
-  --dark:#0b1416;
-  --light:#f4f4f9;
+:root {
+  --primary: #38bdf8;
+  --primary-dark: #2563eb;
+  --bg-dark: #0f172a;
+  --bg-darker: #020617;
+  --text-light: #cbd5e1;
+  --card-bg: #ffffff;
+  --text-main: #475569;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  scroll-behavior:smooth;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
 }
 
-body{
-  font-family:'Open Sans',sans-serif;
-  background:var(--dark);
-  color:var(--light);
+body {
+  background: #f8fafc;
+  color: #0f172a;
 }
 
-/* HEADER */
-header{
-  background:rgba(8, 15, 17, 0.9);
-  padding:0.8rem 4%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:1000;
-  border-bottom:1px solid rgba(0,255,255,.2);
-  flex-wrap:wrap;
-  gap:8px;
+/* =========================================
+   ADVANCED HEADER & NAVIGATION 
+   ========================================= */
+header {
+  background: rgba(15, 23, 42, 0.9);
+  padding: 0.8rem 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  flex-wrap: wrap;
+  gap: 8px;
   backdrop-filter: blur(10px);
-  transition: all 0.3s ease; /* Added for smooth scroll animation */
+  transition: all 0.3s ease;
 }
 
 header.scrolled {
-  background: rgba(8, 15, 17, 0.98);
-  box-shadow: 0 5px 20px rgba(0, 255, 255, 0.15);
+  background: rgba(15, 23, 42, 0.98);
+  box-shadow: 0 5px 20px rgba(56, 189, 248, 0.15);
   padding: 0.5rem 4%;
 }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.logo{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  border:2px solid var(--cyan);
-  box-shadow:0 0 10px var(--cyan);
-}
-
-.brand h2{
-  color:var(--cyan);
-  text-shadow:0 0 10px var(--cyan);
-  font-family:Montserrat;
-  font-size:1.1rem;
-}
-
-/* NAVIGATION */
-.nav-container{
-  display:flex;
-  padding:5px;
-  border-radius:30px;
-  background:rgba(0,60,65,.25);
-  backdrop-filter:blur(12px);
-  box-shadow:
-  inset 0 0 10px rgba(0,255,255,.1),
-  0 0 25px rgba(0,255,255,.05);
-  overflow-x:auto;
-}
-
-.nav-container::-webkit-scrollbar{
-  display:none;
-}
-
-.nav-btn{
-  border:none;
-  padding:8px 16px;
-  border-radius:25px;
-  background:transparent;
-  color:#7dd3d6;
-  font-size:12px;
-  font-weight:700;
-  cursor:pointer;
-  transition:.35s;
-  text-decoration:none;
-  text-transform:uppercase;
-  white-space:nowrap;
-}
-
-.nav-btn:hover{
-  color:white;
-}
-
-.nav-btn.active{
-  color:white;
-  background:linear-gradient(
-  180deg,
-  rgba(0,255,255,.45),
-  rgba(0,120,120,.35)
-  );
-  box-shadow:
-  inset 0 2px 6px rgba(0,255,255,.6),
-  0 0 18px rgba(0,255,255,.7),
-  0 0 35px rgba(0,255,255,.35);
-}
-
-/* SECTIONS */
-section{
-  padding:4rem 5%;
-  min-height:80vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  scroll-margin-top: 80px; /* Ensures header doesn't cover section titles */
-}
-
-.section-title{
-  color:var(--cyan);
-  text-align:center;
-  font-size:2.2rem;
-  margin-bottom:2rem;
-  text-shadow:0 0 12px rgba(0,255,255,.4);
-  font-family:Montserrat;
-}
-
-/* HERO */
-.hero{
-  display:grid;
-  grid-template-columns:1fr 1.5fr;
-  gap:2rem;
-  align-items:center;
-}
-
-.hero img{
-  width:100%;
-  max-width:280px;
-  border-radius:20px;
-  border:2px solid var(--cyan);
-  box-shadow:0 0 20px rgba(0,255,255,.5);
-}
-
-.hero-text h1{
-  font-size:2.8rem;
-  margin-bottom:1rem;
-  text-shadow:0 0 15px var(--cyan);
-  font-family:Montserrat;
-}
-
-.hero-text p{
-  color:#b0d4d4;
-  margin-bottom:1rem;
-  font-size:1rem;
-}
-
-/* GLOW TEXT ANIMATION */
-.glow-text{
-  color:var(--cyan);
-  animation:glowPulse 2s ease-in-out infinite alternate;
-}
-
-@keyframes glowPulse{
-  from{
-  text-shadow:
-  0 0 5px var(--cyan),
-  0 0 10px var(--cyan),
-  0 0 20px var(--cyan);
-  }
-  to{
-  text-shadow:
-  0 0 10px var(--cyan),
-  0 0 25px var(--cyan),
-  0 0 45px var(--cyan);
-  }
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:1.8rem;
-}
-
-.card{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(0,255,255,.3);
-  border-radius:15px;
-  padding:1.8rem;
-  transition:.3s;
-  backdrop-filter:blur(5px);
-}
-
-.card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 8px 20px rgba(0,255,255,.2);
-}
-
-.card h3{
-  color:var(--cyan);
-  margin-bottom:8px;
-}
-
-.card p{
-  color:#b0d4d4;
-}
-
-/* PROJECT GALLERY */
-.project-gallery {
+.brand {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 40px;
+  align-items: center;
+  gap: 12px;
 }
 
-.project-gallery img {
-  width: 100%;
-  max-width: 350px;
-  border: 2px solid var(--cyan);
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,255,255,.3);
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
   object-fit: cover;
+}
+
+.brand h2 {
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.brand h2 span {
+  color: var(--primary);
+}
+
+.nav-container {
+  display: flex;
+  padding: 5px;
+  border-radius: 30px;
+  background: rgba(56, 189, 248, 0.1);
+  backdrop-filter: blur(12px);
+  box-shadow: inset 0 0 10px rgba(56, 189, 248, 0.05);
+  overflow-x: auto;
+}
+
+.nav-container::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-btn {
+  border: none;
+  padding: 8px 18px;
+  border-radius: 25px;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .35s;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.nav-btn:hover {
+  color: white;
+}
+
+.nav-btn.active {
+  color: white;
+  background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+}
+
+/* =========================================
+   SECTIONS & CONTENT 
+   ========================================= */
+section {
+  padding: 80px 8%;
+  scroll-margin-top: 80px; 
+}
+
+.section-title {
+  font-size: 34px;
+  margin-bottom: 40px;
+  text-align: center;
+  color: var(--bg-dark);
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  padding: 120px 8%;
+  background: linear-gradient(120deg, var(--bg-dark), var(--bg-darker));
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr auto; 
+  align-items: center; 
+  gap: 50px;
+}
+
+.hero-text { 
+  max-width: 100%; 
+}
+
+/* Adjusted margins for tighter alignment */
+.hero h1 { font-size: 48px; margin-bottom: 0px; line-height: 1.2;}
+
+.hero span { 
+  color: cyan; 
+  font-size: 0.65em; 
+  white-space: nowrap;
+  display: inline-block;
+  margin-bottom: 8px; /* Pushes the next line down just slightly */
+}
+
+/* Shrunk font-size to 0.95rem and adjusted margins to align with the cyan line */
+.hero h3 { 
+  color: var(--primary); 
+  font-size: 0.95rem; 
+  font-weight: 500; 
+  margin-bottom: 15px; 
+  white-space: nowrap; 
+}
+
+.hero p { color: var(--text-light); margin: 15px 0; line-height: 1.6; }
+
+.hero-bullets {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 15px;
+  border-left: 4px solid var(--primary);
+  display: inline-block;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+.hero-bullets p {
+  color: white;
+  margin: 5px 0;
+  font-weight: 500;
+}
+
+.btn {
+  padding: 14px 30px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  transition: .3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary { background: var(--primary-dark); color: white; }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid var(--primary);
+  padding: 13px 29px; /* adjusted to account for 1px border so it matches primary button size */
+}
+.btn-secondary:hover {
+  background: var(--primary);
+  color: var(--bg-darker);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+}
+
+.hero-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-img img {
+  width: 380px; 
+  height: 380px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) }
+  50% { transform: translateY(-15px) }
+  100% { transform: translateY(0px) }
+}
+
+/* Unified Card Container */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: .3s;
+  border-top: 4px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-top: 4px solid var(--primary);
+  box-shadow: 0 15px 35px rgba(56, 189, 248, 0.1);
+}
+
+.card h3 { margin-bottom: 10px; color: var(--bg-dark); }
+.card p { color: var(--text-main); }
+
+/* Impact Counters */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.impact-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: .3s;
+  border: 1px solid rgba(0,0,0,0.02);
+}
+
+.impact-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 10px 20px rgba(56, 189, 248, 0.1);
+}
+
+.impact-card h2 {
+  color: var(--primary-dark);
+  font-size: 2.8rem;
+  margin-bottom: 5px;
+}
+
+.impact-card p {
+  color: var(--text-main);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Media & Recognition */
+.recognition-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  margin-bottom: 50px;
+}
+
+.video-box iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 15px;
+  border: 2px solid rgba(0,0,0,0.05);
+}
+
+.interview-img {
+  width: 100%;
+  border-radius: 15px;
+  transition: .3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.interview-img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
+}
+
+/* Experience Cards */
+.exp-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: .3s;
+  overflow: hidden;
+  border-top: 4px solid transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-card:hover {
+  transform: translateY(-10px);
+  border-top: 4px solid var(--primary);
+  box-shadow: 0 15px 35px rgba(56, 189, 248, 0.1);
+}
+
+.exp-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.exp-content {
+  padding: 25px;
+}
+
+.exp-content h3 {
+  margin-bottom: 15px;
+  color: var(--bg-dark);
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.exp-content ul {
+  padding-left: 20px;
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+.exp-content ul li {
+  margin-bottom: 10px;
+}
+
+/* Image Slider Styles */
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.slider-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease-in-out;
+}
+.slider-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 23, 42, 0.6);
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 50%;
+  z-index: 10;
+  transition: 0.3s;
+}
+.slider-btn.prev { left: 10px; }
+.slider-btn.next { right: 10px; }
+.slider-btn:hover { background: var(--primary); }
+
+/* HR Skills Grid */
+.hr-skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.hr-skill-card {
+  background: var(--card-bg);
+  padding: 15px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border-left: 4px solid var(--primary);
   transition: .3s;
 }
+.hr-skill-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.15);
+}
+.hr-skill-card svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: var(--primary-dark);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.hr-skill-card img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+.hr-skill-card span {
+  font-weight: 500;
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
 
-.project-gallery img:hover {
+/* Certificates Grid */
+.certificate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 25px;
+}
+
+.certificate-card {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background: var(--card-bg);
+  border-radius: 15px;
+  padding: 20px;
+  transition: .3s;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border-left: 4px solid transparent;
+}
+
+.certificate-card img {
+  width: 160px;
+  height: 90px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+.certificate-card .card-content { flex: 1; }
+.certificate-card h3 { color: var(--bg-dark); margin-bottom: 5px; font-size: 1.1rem; }
+.certificate-card p { color: var(--text-main); font-size: 0.9rem; }
+
+.certificate-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,255,255,.5);
+  border-left: 4px solid var(--primary);
+  box-shadow: 0 15px 35px rgba(56, 189, 248, 0.1);
 }
 
-/* IMPACT */
-.impact{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:20px;
-  text-align:center;
+/* Contact Section */
+.contact {
+  background: linear-gradient(120deg, var(--bg-dark), var(--bg-darker));
+  color: white;
+  text-align: center;
+  border-radius: 20px;
+  margin: 0 8% 50px 8%;
+  padding: 60px 8%;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
-.impact div{
-  padding:18px;
-  border:1px solid rgba(0,255,255,.3);
-  border-radius:12px;
-  background:rgba(255,255,255,.05);
+.contact h2 { color: white; }
+.contact p { margin: 10px 0; color: var(--text-light); font-size: 1.1rem; }
+.contact a { color: var(--primary); text-decoration: none; }
+.contact a:hover { text-decoration: underline; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 25px;
+  background: var(--bg-darker);
+  color: #94a3b8;
 }
 
-.impact h2{
-  color:var(--cyan);
-  font-size:1.8rem;
+/* Responsive */
+@media(max-width: 992px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+  .hero-img {
+    margin: 0 auto;
+    order: -1; 
+  }
+  .hero-bullets { text-align: left; }
+  .hero h3 { font-size: 0.9rem; }
 }
 
-/* VIDEO */
-.video{
-  max-width:900px;
-  margin:auto;
+@media(max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 0.8rem 3%;
+  }
+  .brand { justify-content: center; width: 100%; }
+  .nav-container {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .nav-btn { font-size: 11px; padding: 6px 12px; }
+  .hero { padding-top: 100px; }
+  
+  .hero h1 { font-size: 36px; margin-bottom: 0px; }
+  .hero span { font-size: 0.55em; margin-bottom: 5px; }
+  
+  .hero h3 { font-size: 0.6rem; } 
+  
+  .hero-img img { width: 300px; height: 300px; } 
+  .recognition-wrapper { grid-template-columns: 1fr; }
+  .certificate-grid { grid-template-columns: 1fr; }
+  .certificate-card { flex-direction: column; text-align: center; }
+  section { padding: 60px 5%; }
+  .contact { margin: 0 5% 30px 5%; }
 }
 
-.video iframe{
-  width:100%;
-  height:460px;
-  border-radius:15px;
-  border:2px solid var(--cyan);
-  box-shadow:0 0 20px rgba(0,255,255,.5);
-}
-
-/* FOOTER */
-footer{
-  background:#050a0b;
-  text-align:center;
-  padding:2rem;
-  border-top:1px solid rgba(0,255,255,.2);
-}
-
-footer a{
-  color:var(--cyan);
-  text-decoration:none;
-}
-
-/* Interview Button */
-.interview-btn{
-  display:inline-block;
-  margin-top:15px;
-  padding:8px 20px;
-  background:linear-gradient(180deg, rgba(0,255,255,.45), rgba(0,120,120,.35));
-  color:white;
-  font-weight:700;
-  border-radius:25px;
-  text-decoration:none;
-  box-shadow:
-  inset 0 2px 5px rgba(0,255,255,.6),
-  0 0 18px rgba(0,255,255,.7),
-  0 0 35px rgba(0,255,255,.35);
-  transition:.3s;
-}
-
-.interview-btn:hover{
-  box-shadow:
-  inset 0 3px 8px rgba(0,255,255,.7),
-  0 0 25px rgba(0,255,255,.8),
-  0 0 50px rgba(0,255,255,.45);
-}
-
-.interview-img{
-  margin-top:20px;
-  border:3px solid var(--cyan);
-  border-radius:12px;
-  box-shadow:0 0 20px rgba(0,255,255,.4);
-  max-width:700px;
-  width:100%;
-}
-
-/* Certificate Cards */
-.certificate-grid{
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-  max-width:900px;
-  margin:auto;
-}
-
-.certificate-card{
-  display:flex;
-  gap:20px;
-  align-items:center;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(0,255,255,.3);
-  border-radius:15px;
-  padding:18px;
-  transition:.3s;
-  backdrop-filter:blur(5px);
-  text-decoration:none;
-  color:inherit;
-}
-
-.certificate-card img{
-  width:150px;
-  height:auto;
-  border-radius:10px;
-  object-fit:cover;
-  border:2px solid var(--cyan);
-  box-shadow:0 0 18px rgba(0,255,255,.4);
-  flex-shrink:0;
-}
-
-.certificate-card .card-content{
-  flex:1;
-  text-align:left;
-}
-
-.certificate-card h3{
-  color:var(--cyan);
-  margin-bottom:6px;
-  font-size:1rem;
-}
-
-.certificate-card p{
-  color:#b0d4d4;
-  margin:3px 0;
-  font-size:0.9rem;
-}
-
-.certificate-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 8px 20px rgba(0,255,255,.2);
-  text-decoration:none;
-  color:inherit;
-}
-
-/* DESKTOP/PC NAVIGATION ENHANCEMENTS */
 @media (min-width: 769px) {
   header {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    align-items: center;
   }
-  .brand {
-    justify-self: start;
-  }
-  .nav-container {
-    justify-self: center;
-    padding: 10px 15px;
-    border-radius: 40px;
-  }
-  .nav-btn {
-    font-size: 16px;
-    padding: 12px 24px;
-    border-radius: 30px;
-  }
+  .brand { justify-self: start; }
+  .nav-container { justify-self: center; }
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .brand{
-    justify-content:center;
-    width:100%;
-  }
-  .logo{
-    width:30px;
-    height:30px;
-  }
-  .brand h2{
-    font-size:0.9rem;
-  }
-  .hero{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-  .hero-text h1{
-    font-size:2rem;
-  }
-  .video iframe{
-    height:260px;
-  }
-  header{
-    flex-direction:column;
-    align-items:flex-start;
-    padding:0.5rem 3%;
-  }
-  .nav-btn{
-    padding:6px 12px;
-    font-size:11px;
-  }
-  .certificate-card{
-    flex-direction:column;
-    align-items:center;
-    text-align:left;
-    gap:12px;
-    padding:12px;
-  }
-  .certificate-card img{
-    width:150px;
-    margin-bottom:10px;
-  }
-  .certificate-card .card-content h3{
-    font-size:0.95rem;
-  }
-  .certificate-card .card-content p{
-    font-size:0.8rem;
-  }
+/* LinkedIn Card Styling */
+.linkedin-embed-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 700px;
+  margin: 0 auto;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.linkedin-embed-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(10, 102, 194, 0.15);
+  border-color: rgba(10, 102, 194, 0.3);
+}
+
+.linkedin-cover {
+  height: 120px;
+  background: linear-gradient(120deg, #0a66c2, #004182); /* LinkedIn Official Colors */
+}
+
+.linkedin-profile-pic {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 4px solid var(--card-bg);
+  margin-top: -55px;
+  object-fit: cover;
+  background: white;
+}
+
+.linkedin-content {
+  padding: 0 25px 25px 25px;
+  position: relative;
+}
+
+.linkedin-name {
+  color: var(--bg-dark);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+  margin-top: 10px;
+}
+
+.linkedin-tagline {
+  color: var(--text-main);
+  font-size: 0.95rem;
+  margin-bottom: 8px; /* Adjusted to make room for followers text */
+}
+
+/* New Followers CSS */
+.linkedin-followers {
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+.linkedin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #0a66c2;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: rgba(10, 102, 194, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.linkedin-embed-card:hover .linkedin-btn {
+  background: #0a66c2;
+  color: white;
+}
+.linkedin-embed-card:hover .linkedin-btn svg {
+  fill: white;
 }
 </style>
 </head>
@@ -460,185 +668,416 @@ footer a{
 
 <header id="main-header">
   <div class="brand">
-    <img class="logo" src="https://mbstucc.com/mbstucc-asset-library/_assets/media/e03aa951a79c6544f95f8eafe0c88533.jpg">
-    <h2>Tahamid Alif</h2>
+    <img class="logo" src="https://mbstucc.com/mbstucc-asset-library/_assets/media/e03aa951a79c6544f95f8eafe0c88533.jpg" alt="Tahamid Alif">
+    <h2>Tahamid <span>Alif</span></h2>
   </div>
 
   <div class="nav-container">
     <a href="#home" class="nav-btn active">Home</a>
     <a href="#impact" class="nav-btn">Impact</a>
-    <a href="#projects" class="nav-btn">Projects</a>
+    <a href="#experience" class="nav-btn">Experience</a>
+    <a href="#events" class="nav-btn">Events</a>
     <a href="#skills" class="nav-btn">Skills</a>
     <a href="#certificates" class="nav-btn">Certificates</a>
-    <a href="#video" class="nav-btn">Video Resume</a>
   </div>
+  <div></div> 
 </header>
 
-<section id="home">
-  <div class="hero">
-    <div>
-      <img src="https://mbstucc.com/mbstucc-asset-library/_assets/media/e03aa951a79c6544f95f8eafe0c88533.jpg">
+<section id="home" class="hero">
+  <div class="hero-text">
+    <h1>Tahamid Alif <br><span>Shaping People & Performance</span></h1>
+    <h3>BBA Student & HR Enthusiast | Sustainability Activist | Youth Leader</h3>
+    <p>Hi, I’m Tahamid Alif, a results-driven and tech-savvy HR professional with experience in HR operations, compliance, employee engagement, and HRIS tools like PiHR and KORMEE. I also use Canva and Google Workspace to support HR tasks and improve employee experience.</p>
+    
+    <p>I’m passionate about supporting recruitment, onboarding, and people operations, and I aim to contribute practical, people-focused HR solutions while growing in a dynamic, technology-driven environment.</p>
+    
+    <div class="hero-bullets">
+      <p>✔ 40+ Events Organized</p>
+      <p>✔ 7+ Strategic Partnerships</p>
+      <p>✔ 1000+ Students Impacted</p>
+      <p>✔ 11k+ LinkedIn followers</p>
     </div>
-    <div class="hero-text">
-      <h1>Shaping People and Performance </h1>
-      <p><strong class="glow-text">BBA Student | Sustainability Activist | Youth Leader</strong></p>
-      <p>Hi, I’m Tahamid Alif, an ambitious BBA (Management) student with a strong interest in Human Resources and organizational development.</p>
-      <p>I have experience in organizational coordination, communication, and digital content creation using Canva and Google Workspace. I enjoy working in collaborative environments where I can contribute to effective team coordination and structured workflows.</p>
-      <p style="color:#7dd3d6">
-        ✔ 40+ Events Organized  <br>
-        ✔ 7+ Strategic Partnerships  <br>
-        ✔ 1000+ Students Impacted
-      </p>
-    </div>
+    <br>
+    <a href="#contact" class="btn btn-primary">Let's Connect</a>
+    <a href="https://drive.google.com/file/d/1l2yPt_x-bmYvhOGnFkkh0BkOlzWa-nXd/view?usp=sharing" target="_blank" class="btn btn-secondary">Download CV</a>
+  </div>
+
+  <div class="hero-img">
+    <img src="https://mbstucc.com/mbstucc-asset-library/_assets/media/e03aa951a79c6544f95f8eafe0c88533.jpg" alt="Tahamid Alif Profile">
   </div>
 </section>
 
 <section id="impact">
-  <h2 class="section-title">Impact</h2>
-  <div class="impact">
-    <div>
+  <h2 class="section-title">My Impact</h2>
+  
+  <div class="impact-grid">
+    <div class="impact-card">
       <h2 class="count" data-target="40">0</h2>
-      <p>Events</p>
+      <p style="font-size: 0.85rem; text-transform: none; letter-spacing: normal; line-height: 1.4;">Events Organized at MBSU Career Club.</p>
     </div>
-    <div>
+    <div class="impact-card">
       <h2 class="count" data-target="7">0</h2>
-      <p>Partnerships</p>
+      <p style="font-size: 0.85rem; text-transform: none; letter-spacing: normal; line-height: 1.4;">Successful Strategic partnership from MBSTU Career Club</p>
     </div>
-    <div>
-      <h2 class="count" data-target="1000">0</h2>
-      <p>Students</p>
+    <div class="impact-card">
+      <h2 class="count" data-target="65">0</h2>
+      <p style="font-size: 0.85rem; text-transform: none; letter-spacing: normal; line-height: 1.4;">Managed 65+ employees HR operations using PiHR</p>
     </div>
-    <div>
-      <h2 class="count" data-target="90">0</h2>
-      <p>Videos</p>
+    <div class="impact-card">
+      <h2 class="count" data-target="45">0</h2>
+      <p style="font-size: 0.85rem; text-transform: none; letter-spacing: normal; line-height: 1.4;">Managed 45+ employee grievance cases</p>
     </div>
   </div>
 
-  <div style="text-align:center;margin-top:60px;">
-    <h2 class="section-title">My Interview with Lead Academy</h2>
-    <div class="video">
+  <h3 style="font-size: 1.5rem; margin-bottom: 20px; text-align: center; color: var(--bg-dark);">Media & Recognition</h3>
+  <div class="recognition-wrapper">
+    <div class="video-box" style="text-align: center;">
       <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=2745903938948631&show_text=false" allowfullscreen></iframe>
+      <a href="https://www.facebook.com/watch/?v=2745903938948631" target="_blank" style="display:inline-block; margin-top:15px; color: var(--primary-dark); font-weight: 600; text-decoration: none;">Watch Interview ➔</a>
     </div>
-    <br>
-    <a class="interview-btn" href="https://www.facebook.com/watch/?v=2745903938948631" target="_blank">Watch My Interview</a>
-    <br>
-    <img class="interview-img" src="https://res.cloudinary.com/drkgvct2w/image/upload/v1773970415/500245779_1119686520174180_8459352114944038153_n_yl14we.jpg" alt="Interview on Newspaper">
-    <p style="color:#b0d4d4; margin-top:10px; font-weight:600; margin-bottom: 60px;">My interview published on National Daily Newspaper</p>
+    <div style="text-align: center;">
+      <img class="interview-img" src="https://res.cloudinary.com/drkgvct2w/image/upload/v1773970415/500245779_1119686520174180_8459352114944038153_n_yl14we.jpg" alt="Interview on Newspaper">
+      <p style="color:var(--text-main); margin-top:15px; font-weight:600;">My Interview Published in National Daily Newspaper</p>
+    </div>
+  </div>
 
-    <h2 class="section-title">My collaboration and partnerships</h2>
-    <img class="interview-img" src="https://res.cloudinary.com/drkgvct2w/image/upload/v1773970415/589196442_1889220825311215_99127945377649201_n_ejfu0w.jpg" alt="MoU signing with HR Perception">
-    <p style="color:#b0d4d4; margin-top:10px; font-weight:600; margin-bottom: 40px;">(MoU signing with HR Perception)</p>
-    <img class="interview-img" src="https://res.cloudinary.com/drkgvct2w/image/upload/v1773970423/496490048_1105991124877053_8989835391336068194_n_a8yux3.jpg" alt="MoU signing with Netcom Learning Bangladesh">
-    <p style="color:#b0d4d4; margin-top:10px; font-weight:600;">(MoU signing with Netcom Learning Bangladesh)</p>
+  <h3 style="font-size: 1.5rem; margin-bottom: 20px; text-align: center; color: var(--bg-dark);">Strategic Collaborations</h3>
+  <div class="recognition-wrapper" style="box-shadow: none; background: transparent; border: none; padding: 0;">
+    <div style="text-align: center;">
+      <img class="interview-img" src="https://res.cloudinary.com/drkgvct2w/image/upload/v1773970415/589196442_1889220825311215_99127945377649201_n_ejfu0w.jpg" alt="MoU signing with HR Perception">
+      <p style="color:var(--text-main); margin-top:15px; font-weight:600;">MoU with HR Perception</p>
+    </div>
+    <div style="text-align: center;">
+      <img class="interview-img" src="https://res.cloudinary.com/drkgvct2w/image/upload/v1773970423/496490048_1105991124877053_8989835391336068194_n_a8yux3.jpg" alt="MoU signing with Netcom Learning">
+      <p style="color:var(--text-main); margin-top:15px; font-weight:600;">MoU with Netcom Learning Bangladesh</p>
+    </div>
   </div>
 </section>
 
-<section id="projects">
-  <h2 class="section-title">Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Digital Awareness Bootcamp</h3>
-      <p>Empowered female students with digital productivity skills.</p>
+<section id="experience">
+  <h2 class="section-title">PROFESSIONAL EXPERIENCE</h2>
+  <div class="card-container">
+    <div class="exp-card">
+      <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1774786269/ezgif-47d3e4dda0b577e7_yuh84i.gif" alt="Igloo Ice Cream">
+      <div class="exp-content">
+        <h3>Intern at Igloo Ice Cream,<br>Abdul Monem Limited, Dhaka</h3>
+        <ul>
+          <li>Managed 65+ employees HR operations using PiHR (HR & Payroll Software).</li>
+          <li>Coordinated and assisted in day-to-day HR operations, talent acquisition, and 5 training activities.</li>
+          <li>Prepared 12 periodical reports and assisted with internal and external employee relation programs.</li>
+        </ul>
+      </div>
     </div>
-    <div class="card">
-      <h3>Career Development Workshops</h3>
-      <p>Organized seminars and bootcamps for career awareness.</p>
+    
+    <div class="exp-card">
+      <div class="slider-container">
+        <button class="slider-btn prev" onclick="moveSlide(this, -1)">❮</button>
+        <div class="slider-wrapper" data-index="0">
+          <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1774786405/maxresdefault_rpgi3l.jpg" alt="MBSTU Career Club 1">
+          <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1775684929/1_xsixyo.png" alt="MBSTU Career Club 2">
+          <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1775684928/2_prrbab.png" alt="MBSTU Career Club 3">
+        </div>
+        <button class="slider-btn next" onclick="moveSlide(this, 1)">❯</button>
+      </div>
+      <div class="exp-content">
+        <h3>President<br>MBSTU Career Club</h3>
+        <ul>
+          <li><a href="https://mbstucc.com" target="_blank" style="color: var(--primary-dark); font-weight: 600; text-decoration: none;">mbstucc.com</a> - A club dedicated to enhancing career opportunities for students.</li>
+          <li>Successfully coordinated 40+ seminars, workshops, and career events during the 2024–25 club year, aligned with the United Nations Sustainable Development Goals (SDGs).</li>
+          <li>Managed 70+ design, content, and social media posts for promotion.</li>
+          <li>Collaborated with 5 national and 2 international organizations.</li>
+        </ul>
+      </div>
     </div>
-    <div class="card">
-      <h3>Strategic Partnerships</h3>
-      <p>Collaborated with national and international organizations.</p>
+
+    <div class="exp-card">
+      <div class="slider-container">
+        <button class="slider-btn prev" onclick="moveSlide(this, -1)">❮</button>
+        <div class="slider-wrapper" data-index="0">
+          <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1775684927/3_wd6ymj.png" alt="NASPRO Auto Detailing 1">
+          <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1774786537/flexible-desk_hwasyk.webp" alt="NASPRO Auto Detailing 2">
+          <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1775684928/4_o4x5yf.png" alt="NASPRO Auto Detailing 3">
+        </div>
+        <button class="slider-btn next" onclick="moveSlide(this, 1)">❯</button>
+      </div>
+      <div class="exp-content">
+        <h3>NASPRO Auto Detailing, Dhaka<br>Compliance & Grievance Management HR Executive</h3>
+        <ul>
+          <li>Maintained and updated HRIS and 25+ employee database using KORMEE HR App, ensuring data accuracy and security.</li>
+          <li>Managed 45+ employee grievance cases, ensuring timely, fair resolutions while maintaining strict confidentiality and professional integrity.</li>
+          <li>Supported core HR operations for 25+ employees, including attendance tracking, leave management, and employee documentation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="slider-container">
+        <button class="slider-btn prev" onclick="moveSlide(this, -1)">❮</button>
+        <div class="slider-wrapper" data-index="0">
+          <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1775684925/5_cxzi8p.png" alt="4M TV USA 1">
+          <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1775684929/6_pzdlva.png" alt="4M TV USA 2">
+          <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1775684929/7_rg89ng.png" alt="4M TV USA 3">
+        </div>
+        <button class="slider-btn next" onclick="moveSlide(this, 1)">❯</button>
+      </div>
+      <div class="exp-content">
+        <h3>4M TV USA, USA<br>People & Wellbeing Executive</h3>
+        <ul>
+          <li>Led 10+ virtual ice-breaking sessions and employee recognition initiatives to strengthen collaboration, morale, and engagement across a multicultural remote team.</li>
+          <li>Boosted team performance by 15% using wellbeing strategies and coordinated 20+ remote employees, improving engagement and reducing delays by 20%.</li>
+          <li>Supported remote team coordination and communication, ensuring seamless collaboration and a positive, inclusive work environment.</li>
+        </ul>
+      </div>
     </div>
   </div>
+</section>
 
-  <div class="project-gallery">
-    <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1773970414/490405401_1088444499965049_317091304181031626_n_f5g262.jpg" alt="Project Image 1">
-    <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1773972985/484536169_1064277105715122_2872901531320010393_n_x88lfm.jpg" alt="Project Image 2">
-    <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1773970421/484536452_1063396515803181_4857376605982063125_n_miebo2.jpg" alt="Project Image 3">
+<section id="events">
+  <h2 class="section-title">Events & Leadership Highlights</h2>
+  <div class="card-container">
+    
+    <div class="exp-card" onclick="window.open('https://www.daily-bangladesh.com/education/497653', '_blank')" style="cursor: pointer;">
+      <div class="slider-container">
+        <button class="slider-btn prev" onclick="event.stopPropagation(); moveSlide(this, -1)">❮</button>
+        <div class="slider-wrapper" data-index="0">
+          <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1774785328/469847650_122129333576513093_2687434673521129245_n_itrfyy.jpg" alt="ICT Awareness Bootcamp 1">
+          <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1775741237/mabiprobi-db-db-1727439691_t1edi1.jpg" alt="ICT Awareness Bootcamp 2">
+        </div>
+        <button class="slider-btn next" onclick="event.stopPropagation(); moveSlide(this, 1)">❯</button>
+      </div>
+      <div class="exp-content">
+        <h3>ICT Awareness Bootcamp<br><span style="font-size: 0.9rem; color: var(--primary-dark); font-weight: 500;">Focus: Digital Literacy for Females</span></h3>
+        <p style="color: var(--text-main); font-size: 0.9rem; line-height: 1.5;">Empowered 75+ female students with foundational digital productivity skills, bridging the digital divide in educational settings. It promoted SDG 4 Quality Education.</p>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="slider-container">
+        <button class="slider-btn prev" onclick="moveSlide(this, -1)">❮</button>
+        <div class="slider-wrapper" data-index="0">
+          <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1775741869/485363439_1068555931953906_5592137259459482120_n_1_vrgtjm.jpg" alt="Mother Language Day 1">
+          <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1775741869/486085916_1068556455287187_6601429412559021687_n_tbkygd.jpg" alt="Mother Language Day 2">
+          <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1775741869/486357456_1068557648620401_1572756084457738916_n_kd65ow.jpg" alt="Mother Language Day 3">
+        </div>
+        <button class="slider-btn next" onclick="moveSlide(this, 1)">❯</button>
+      </div>
+      <div class="exp-content">
+        <h3>International Mother Language Day Celebration<br><span style="font-size: 0.9rem; color: var(--primary-dark); font-weight: 500;">From MBSTU Career Club</span></h3>
+        <p style="color: var(--text-main); font-size: 0.9rem; line-height: 1.5;">International Mother Language Day is a worldwide annual observance held on 21 February to promote awareness of linguistic and cultural diversity. It promotes SDG 4 Quality Education.</p>
+      </div>
+    </div>
+
+    <div class="exp-card" onclick="window.open('https://www.deshchitro.com/details/53826?fbclid=IwZXh0bgNhZW0CMTAAc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHgTaqJwKAjGgEiG3X5p-3XjJVAMkJdXQj0evOkax8V_U1Rhbdv31Y8ql5L34_aem_KeyCnadRJm-0bwgTIMNvTQ', '_blank')" style="cursor: pointer;">
+      <div class="slider-container">
+        <button class="slider-btn prev" onclick="event.stopPropagation(); moveSlide(this, -1)">❮</button>
+        <div class="slider-wrapper" data-index="0">
+          <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1775743163/490405401_1088444499965049_317091304181031626_n_1_ned7ju.jpg" alt="New Year New Voice 1">
+          <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1775743813/%E0%A6%89%E0%A6%AA%E0%A6%B8%E0%A7%8D%E0%A6%A5%E0%A6%BF%E0%A6%A4_%E0%A6%AC%E0%A6%95%E0%A7%8D%E0%A6%A4%E0%A7%83%E0%A6%A4%E0%A6%BE_%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%A4%E0%A6%BF%E0%A6%AF%E0%A7%87%E0%A6%BE%E0%A6%97%E0%A6%BF%E0%A6%A4%E0%A6%BE_%E0%A6%AC%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%A8%E0%A6%BE%E0%A6%B0_rhjvkx.jpg" alt="New Year New Voice 2">
+        </div>
+        <button class="slider-btn next" onclick="event.stopPropagation(); moveSlide(this, 1)">❯</button>
+      </div>
+      <div class="exp-content">
+        <h3>New Year, New Voice 1432<br><span style="font-size: 0.9rem; color: var(--primary-dark); font-weight: 500;">Extempore Speech Competition</span></h3>
+        <p style="color: var(--text-main); font-size: 0.9rem; line-height: 1.5;">Organized by MBSTU Career Club, this competition celebrates the spirit of the Bengali New Year. This event promotes United Nations Sustainable Development Goal 4 – Quality Education by enhancing students’ communication, critical thinking, and public speaking skills.</p>
+      </div>
+    </div>
+
+    <div class="exp-card" onclick="window.open('https://dailyinsafnews.com/%E0%A6%AE%E0%A6%BE%E0%A6%AD%E0%A6%BE%E0%A6%AC%E0%A6%BF%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%AC%E0%A6%BF%E0%A6%A4%E0%A7%87-%E0%A6%AD%E0%A6%AC%E0%A6%BF%E0%A6%B7%E0%A7%8D%E0%A6%AF%E0%A7%8E-%E0%A6%A8/', '_blank')" style="cursor: pointer;">
+      <div class="slider-container">
+        <button class="slider-btn prev" onclick="event.stopPropagation(); moveSlide(this, -1)">❮</button>
+        <div class="slider-wrapper" data-index="0">
+          <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1775744298/496070470_1105991594877006_3736723335810014010_n_yaeery.jpg" alt="AI for Future Leaders 1">
+          <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1775744032/496959424_1113734674102698_4496383409381500461_n_ejkgv0.jpg" alt="AI for Future Leaders 2">
+        </div>
+        <button class="slider-btn next" onclick="event.stopPropagation(); moveSlide(this, 1)">❯</button>
+      </div>
+      <div class="exp-content">
+        <h3>AI for Future Leaders<br><span style="font-size: 0.9rem; color: var(--primary-dark); font-weight: 500;">A Seminar on AI and Its Limitless Potential</span></h3>
+        <p style="color: var(--text-main); font-size: 0.9rem; line-height: 1.5;">MBSTU Career Club, in collaboration with NetCom Learning Bangladesh hosted the exclusive seminar "AI for Future Leaders.” the session offered students and early professionals a closer look at how artificial intelligence is transforming careers, creativity, and industries.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <section id="skills">
-  <h2 class="section-title">Skills</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Leadership</h3>
-      <p>Team management and event coordination.</p>
+  <h2 class="section-title">Skills & Expertise</h2>
+
+  <h3 style="font-size: 1.5rem; margin-bottom: 25px; text-align: center; color: var(--bg-dark);">HR Tools</h3>
+  <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 50px; flex-wrap: wrap;">
+    <div style="background: var(--card-bg); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; width: 220px; transition: .3s; border-top: 4px solid var(--primary);">
+      <img src="https://mypihr.com/wp-content/uploads/2022/06/Logo.svg" alt="PiHR Logo" style="width: 90px; height: 90px; border-radius: 50%; object-fit: contain; margin-bottom: 15px; border: 2px solid var(--primary); background: #ffffff; padding: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+      <h4 style="color: var(--bg-dark); font-size: 1.1rem; margin-bottom: 5px;">PiHR</h4>
+      <p style="color: var(--text-main); font-size: 0.85rem;">(HR & Payroll Software)</p>
     </div>
-    <div class="card">
-      <h3>Digital Marketing</h3>
-      <p>Meta Ads campaigns and social media strategy.</p>
+    <div style="background: var(--card-bg); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; width: 220px; transition: .3s; border-top: 4px solid var(--primary);">
+      <img src="https://play-lh.googleusercontent.com/MrsVKxxyQWfApg50BM8O7x1FLLhp1OrvPKdpKH121T9LpF8oMrEaSoddHHMT6jGmTg=w480-h960-rw" alt="Kormee Logo" style="width: 90px; height: 90px; border-radius: 50%; object-fit: contain; margin-bottom: 15px; border: 2px solid var(--primary); background: #ffffff; padding: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+      <h4 style="color: var(--bg-dark); font-size: 1.1rem; margin-bottom: 5px;">Kormee™</h4>
+      <p style="color: var(--text-main); font-size: 0.85rem;">(HR & Payroll Software)</p>
     </div>
-    <div class="card">
-      <h3>Creative Design</h3>
-      <p>80+ Canva graphics for campaigns and events.</p>
+  </div>
+
+  <h3 style="font-size: 1.5rem; margin-bottom: 25px; text-align: center; color: var(--bg-dark);">HR Skills</h3>
+  <div class="hr-skills-container">
+    <div class="hr-skill-card">
+      <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+      <span>HR & Administration</span>
     </div>
-    <div class="card">
-      <h3>Video Editing</h3>
-      <p>Edited 90+ promotional videos.</p>
+    <div class="hr-skill-card">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+      <span>HR Operations</span>
+    </div>
+    <div class="hr-skill-card">
+      <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+      <span>Recruitment & Onboarding</span>
+    </div>
+    <div class="hr-skill-card">
+      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+      <span>Employee Engagement</span>
+    </div>
+    <div class="hr-skill-card">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+      <span>Reporting</span>
+    </div>
+    <div class="hr-skill-card">
+      <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+      <span>Leadership</span>
+    </div>
+    <div class="hr-skill-card">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+      <span>Problem-Solving</span>
+    </div>
+    <div class="hr-skill-card">
+      <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+      <span>Communication</span>
+    </div>
+  </div>
+
+  <h3 style="font-size: 1.5rem; margin-top: 50px; margin-bottom: 25px; text-align: center; color: var(--bg-dark);">Tools & Software</h3>
+  <div class="hr-skills-container">
+    <div class="hr-skill-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/960px-Microsoft_logo.svg.png?_=20210729021049" alt="MS Office">
+      <span>MS Office</span>
+    </div>
+    <div class="hr-skill-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Microsoft_Office_Excel_%282019%E2%80%932025%29.svg/330px-Microsoft_Office_Excel_%282019%E2%80%932025%29.svg.png" alt="MS Excel">
+      <span>MS Excel</span>
+    </div>
+    <div class="hr-skill-card">
+      <img src="https://mailmeteor.com/logos/assets/PNG/Microsoft_Office_Outlook_Logo_512px.png">
+      <span>Microsoft Outlook</span>
+    </div>
+    <div class="hr-skill-card">
+      <img src="https://www.gesi.org/wp-content/uploads/2024/08/google-logo-png-open-2000.png">
+      <span>Google Workspace - G Suite</span>
+    </div>
+    <div class="hr-skill-card">
+      <img src="https://public.canva.site/logo/media/dfb96cc174513093cd6ed61489ccb750.svg" alt="Canva">
+      <span>Canva</span>
+    </div>
+    <div class="hr-skill-card">
+      <img src="https://i.pinimg.com/736x/fe/97/3e/fe973ef75e14e96c5fc5cdf4fcdc0ef4.jpg" alt="CapCut & Visual Content Design">
+      <span>CapCut & Visual Content Design</span>
+    </div>
+    <div class="hr-skill-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdXVjuS1x2ZOgBlR1wN_Cjr0ROFFnmRx1DGQ&s" alt="Click Up">
+      <span>Click Up</span>
     </div>
   </div>
 </section>
 
 <section id="certificates">
-  <h2 class="section-title">Certificates</h2>
+  <h2 class="section-title">Certifications</h2>
   <div class="certificate-grid">
+    <a href="https://www.coursera.org/projects/introduction-to-project-management-with-clickup" target="_blank" class="certificate-card">
+      <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~COURSE!~introduction-to-project-management-with-clickup/XDP~COURSE!~introduction-to-project-management-with-clickup.jpeg" alt="ClickUp">
+      <div class="card-content">
+        <h3>Introduction to Project Management with ClickUp</h3>
+        <p>Coursera</p>
+        <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.7;">ID: BXNYREZX-UYHIKL</p>
+      </div>
+    </a>
     <a href="https://coursera.org/account/accomplishments/verify/XACM2A63RLAR" target="_blank" class="certificate-card">
-      <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~XACM2A63RLAR/CERTIFICATE_LANDING_PAGE~XACM2A63RLAR.jpeg" alt="Introduction to Google SEO">
+      <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~XACM2A63RLAR/CERTIFICATE_LANDING_PAGE~XACM2A63RLAR.jpeg" alt="Google SEO">
       <div class="card-content">
         <h3>Introduction to Google SEO</h3>
-        <p>Issued by University of California, Davis</p>
-        <p>Credential ID: XACM2A63RLAR</p>
+        <p>University of California, Davis</p>
+        <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.7;">ID: XACM2A63RLAR</p>
       </div>
     </a>
     <a href="https://www.udemy.com/certificate/UC-df882676-d94c-4590-9107-1ee70bff8a0a/" target="_blank" class="certificate-card">
-      <img src="https://udemy-certificate.s3.amazonaws.com/image/UC-df882676-d94c-4590-9107-1ee70bff8a0a.jpg?v=1625147678000" alt="Certified Instagram Marketing Professional (CPD Accredited)">
+      <img src="https://udemy-certificate.s3.amazonaws.com/image/UC-df882676-d94c-4590-9107-1ee70bff8a0a.jpg?v=1625147678000" alt="Instagram Marketing">
       <div class="card-content">
-        <h3>Certified Instagram Marketing Professional (CPD Accredited)</h3>
-        <p>Issued by Udemy</p>
-        <p>Credential ID: UC-df882676-d94c</p>
+        <h3>Certified Instagram Marketing Pro</h3>
+        <p>Udemy (CPD Accredited)</p>
+        <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.7;">ID: UC-df882676-d94c</p>
       </div>
     </a>
     <a href="https://alison.com/certification/check/db1cb7fb6e" target="_blank" class="certificate-card">
-      <img src="https://cdn01.alison-static.net/parchment-previews/6feb52ec1c64360b28dd51e1112bcb27.jpg" alt="Social Media Marketing">
+      <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1775746043/Screenshot_2026-04-09_at_8.45.11_PM_re0zzp.png" alt="Social Media Marketing">
       <div class="card-content">
         <h3>Social Media Marketing</h3>
-        <p>Issued by Alison</p>
-        <p>Credential ID: CANVA-DESIGN-2024</p>
+        <p>Alison</p>
+        <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.7;">ID: CANVA-DESIGN-2024</p>
       </div>
     </a>
     <a href="https://drive.google.com/file/d/1eTIhbwE6s5WBbBVUcwUEt4FJNN2nZxZ7/view?usp=sharing" target="_blank" class="certificate-card">
-      <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1773554190/1749916822219_kiqz0g.jpg" alt="Lean Six Sigma White Belt Certification">
+      <img src="https://res.cloudinary.com/drkgvct2w/image/upload/v1773554190/1749916822219_kiqz0g.jpg" alt="Six Sigma">
       <div class="card-content">
-        <h3>Lean Six Sigma White Belt Certification</h3>
-        <p>Issued by The Council for Six Sigma Certification (CSSC)</p>
-        <p>Credential ID:GG18XmDIX7</p>
+        <h3>Lean Six Sigma White Belt</h3>
+        <p>The Council for Six Sigma (CSSC)</p>
+        <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.7;">ID: GG18XmDIX7</p>
+      </div>
+    </a>
+  </div>
+
+  <div style="margin-top: 80px; text-align: center;">
+    <h3 style="font-size: 1.8rem; margin-bottom: 25px; color: var(--bg-dark);">Video Resume</h3>
+    <div style="max-width: 900px; margin: 0 auto; width: 100%;">
+      <iframe style="width:100%; aspect-ratio:16/9; border-radius:15px; border:none; box-shadow:0 10px 30px rgba(0,0,0,0.1);" src="https://www.youtube.com/embed/YidbGRoppfE" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div style="margin-top: 80px; text-align: center;">
+    <h3 style="font-size: 1.8rem; margin-bottom: 25px; color: var(--bg-dark);">My LinkedIn</h3>
+    
+    <a href="https://linkedin.com/in/tahamid-alif-1743591b3" target="_blank" style="text-decoration: none; display: block;">
+      <div class="linkedin-embed-card">
+        <div class="linkedin-cover"></div>
+        <div class="linkedin-content">
+          <img src="https://mbstucc.com/mbstucc-asset-library/_assets/media/e03aa951a79c6544f95f8eafe0c88533.jpg" alt="Tahamid Alif" class="linkedin-profile-pic">
+          <h4 class="linkedin-name">Tahamid Alif</h4>
+          <p class="linkedin-tagline">BBA Student & HR Enthusiast | Sustainability Activist | Youth Leader</p>
+          <p class="linkedin-followers">11,555 followers</p>
+          <div class="linkedin-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#0a66c2">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+            View Profile on LinkedIn
+          </div>
+        </div>
       </div>
     </a>
   </div>
 </section>
 
-<section id="video">
-  <h2 class="section-title">Video Resume</h2>
-  <div class="video">
-    <iframe src="https://www.youtube.com/embed/YidbGRoppfE" allowfullscreen></iframe>
-  </div>
+<section id="contact" class="contact">
+  <h2 style="font-size: 34px; margin-bottom: 20px;">Let's Connect</h2>
+  <p>Email: <a href="mailto:htahamidalif@gmail.com" style="color: white;">htahamidalif@gmail.com</a></p>
+  <p>Phone: +8801771438335</p>
+  <p>LinkedIn: <a href="https://linkedin.com/in/tahamid-alif-1743591b3" target="_blank" style="color: var(--primary);">https://linkedin.com/in/tahamid-alif-1743591b3</a></p>
 </section>
 
 <footer>
-  <h2>Tahamid Alif</h2>
-  <p>Dhaka, Bangladesh</p>
-  <p>Email: <a href="mailto:htahamidalif@gmail.com">htahamidalif@gmail.com</a></p>
-  <p>LinkedIn: <a href="https://linkedin.com/in/tahamid-alif-1743591b3">linkedin.com/in/tahamid-alif</a></p>
-  <p>© 2026 Tahamid Alif</p>
+  © 2026 Tahamid Alif | Tech HR Portfolio
 </footer>
 
 <script>
-  // Setup elements
+  // Navigation active state management
   const navBtns = document.querySelectorAll(".nav-btn");
   const sections = document.querySelectorAll("section");
   const header = document.getElementById("main-header");
 
-  // Optional: manual click handler to update immediately before scroll catches up
   navBtns.forEach(btn => {
     btn.addEventListener("click", function() {
       navBtns.forEach(b => b.classList.remove("active"));
@@ -646,27 +1085,24 @@ footer a{
     });
   });
 
-  // ScrollSpy: Update active nav link based on scroll position
   window.addEventListener("scroll", () => {
     let current = "";
     
-    // Add nice glass effect to header when scrolling down
+    // Header shadow on scroll
     if (window.scrollY > 50) {
       header.classList.add("scrolled");
     } else {
       header.classList.remove("scrolled");
     }
 
+    // Update active nav based on section
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      // Subtract an offset so it highlights a bit before the section reaches the very top
       if (window.pageYOffset >= (sectionTop - 150)) {
         current = section.getAttribute("id");
       }
     });
 
-    // Apply active class to the correct nav button
     navBtns.forEach(btn => {
       btn.classList.remove("active");
       if (btn.getAttribute("href") === `#${current}`) {
@@ -675,30 +1111,46 @@ footer a{
     });
   });
 
-  /* Impact Count Animation */
+  // Animated Number Counters
   const counters = document.querySelectorAll(".count");
   counters.forEach(counter => {
     counter.innerText = '0';
     const updateCounter = () => {
       const target = +counter.getAttribute('data-target');
       const count = +counter.innerText;
-      const increment = target / 100;
+      const increment = target / 50; 
       if (count < target) {
         counter.innerText = Math.ceil(count + increment);
-        setTimeout(updateCounter, 20);
+        setTimeout(updateCounter, 30);
       } else {
         counter.innerText = target + "+";
       }
     };
-    // Trigger animation when elements become visible using Intersection Observer
+    
     const observer = new IntersectionObserver(entries => {
       if(entries[0].isIntersecting) {
         updateCounter();
-        observer.disconnect(); // Run only once
+        observer.disconnect(); 
       }
     });
     observer.observe(counter);
   });
+
+  // Image Slider functionality
+  function moveSlide(btn, direction) {
+    const container = btn.parentElement;
+    const wrapper = container.querySelector('.slider-wrapper');
+    const slides = wrapper.querySelectorAll('img');
+    const totalSlides = slides.length;
+    let currentIndex = parseInt(wrapper.getAttribute('data-index') || 0);
+    
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = totalSlides - 1;
+    if (currentIndex >= totalSlides) currentIndex = 0;
+    
+    wrapper.setAttribute('data-index', currentIndex);
+    wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
 </script>
 
 </body>
